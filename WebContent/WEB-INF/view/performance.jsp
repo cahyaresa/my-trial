@@ -1,11 +1,14 @@
 <%@ include file="layout/top.jsp"%>
 <script type="text/javascript">
-	$(function() {
-		$('#data-table').dataTable({
-			info : false
-		});
-		
+$(function() {
+	$('#data-table').dataTable({
+		info : false,
+		dom: 'Bfrtip',
+        buttons: [
+            'csv', 'excel', 'pdf', 'print'
+        ]
 	});
+});
 </script>
 
 <!-- Content Wrapper. Contains page content -->

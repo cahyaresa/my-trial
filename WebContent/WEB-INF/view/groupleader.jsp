@@ -4,9 +4,12 @@
 <script type="text/javascript">
 	$(function() {
 		$('#data-table').dataTable({
-			info : false
+			info : false,
+			dom: 'Bfrtip',
+	        buttons: [
+	            'csv', 'excel', 'pdf', 'print'
+	        ]
 		});
-		
 	});
 </script>
 
