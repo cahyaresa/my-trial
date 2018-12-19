@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.2.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.2.xsd">
+
+
+	<context:component-scan base-package="com.maven.trial.app"></context:component-scan>
+	<context:annotation-config></context:annotation-config>
+	<tx:annotation-driven />
+	
+	<!-- add application.properties for resource file -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:application.properties</value>
+		</property>
+	</bean>
+
+	<!-- add Data Source -->
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	    <property name="driverClassName" value="${mysql.app.trial.driver}" />
+	    <property name="url" value="${mysql.app.trial.url}" />
+	    <property name="username" value="${mysql.app.trial.username}"/>
+	    <property name="password" value="${mysql.app.trial.password}"/>
+	</bean>
+	
+	<!-- Session Factory  -->
+	<!--  This section to make database automatically -->
+	<bean  class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" 
+		id="sessionFactory">
+		 <property name="dataSource" ref="dataSource"></property>
+		 <property name="annotatedClasses">
+				<list>
+					<value>com.maven.trial.app.model.Employee</value>
+					<value>com.maven.trial.app.model.Department</value>
+					<value>com.maven.trial.app.model.FormCnm</value>
+					<value>com.maven.trial.app.model.Groupleader</value>
+					<value>com.maven.trial.app.model.Performance</value>
+					
+				</list>
+			</property>
+			<property name="hibernateProperties">
+				<props>
+					<prop key="hibernate.hbm2ddl.auto">create</prop>
+					<prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+					<prop key="hibernate.show_sql">true</prop>
+					<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext
+					</prop>
+				</props>            
+			</property>
+		</bean>
+		
+		<!-- Transaction Manager -->
+		<bean id="transactionManager"
+			class="org.springframework.orm.hibernate5.HibernateTransactionManager">
+			<property name="sessionFactory" ref="sessionFactory" />
+		</bean>
+</beans>
+
