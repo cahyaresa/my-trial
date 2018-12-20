@@ -159,6 +159,11 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>5.1.35</version>
 		</dependency>
+	<dependency>
+		<groupId>org.postgresql</groupId>
+		<artifactId>postgresql</artifactId>
+		<version>9.4.1208</version>
+	</dependency>
 		<!-- https://mvnrepository.com/artifact/commons-dbcp/commons-dbcp -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>
@@ -242,7 +247,7 @@
 
 
 	<build>
-		<finalName>maven-transaksi</finalName>
+		<finalName>maven-deploy</finalName>
 
 		<!-- add plugins -->
 		<plugins>
@@ -258,6 +263,18 @@
 				<configuration>
 					<source>1.8</source>
 					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.heroku.sdk</groupId>
+				<artifactId>heroku-maven-plugin</artifactId>
+				<version>2.0.6</version>
+				<configuration>
+					<buildpacks>
+						<buildpack>heroku/exec</buildpack>
+						<buildpack>heroku/metrics</buildpack>
+						<buildpack>heroku/jvm</buildpack>
+					</buildpacks>
 				</configuration>
 			</plugin>
 		</plugins>
