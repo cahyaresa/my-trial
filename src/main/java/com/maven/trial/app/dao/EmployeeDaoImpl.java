@@ -18,7 +18,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 	private SessionFactory sessionFactory;
 	
 	
-	@Override
+	
 	public List<Employee> getAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -26,7 +26,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		return session.createCriteria(Employee.class).list();
 	}
 
-	@Override
+	
 	public Employee getOne(Employee emp) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -34,7 +34,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		return session.get(Employee.class, emp.getId());
 	}
 
-	@Override
+	
 	public void save(Employee emp) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -42,7 +42,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void delete(Employee emp) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -50,7 +50,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void update(Employee emp) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -58,7 +58,7 @@ public class EmployeeDaoImpl implements EmployeeDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void saveOrupdate(Employee emp) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

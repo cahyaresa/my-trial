@@ -18,7 +18,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 	private SessionFactory sessionFactory;
 	
 	
-	@Override
+	
 	public List<Performance> getAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -26,7 +26,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		return session.createCriteria(Performance.class).list();
 	}
 
-	@Override
+	
 	public Performance getOne(Performance perform) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -34,7 +34,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		return session.get(Performance.class, perform.getId());
 	}
 
-	@Override
+	
 	public void save(Performance perform) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -42,7 +42,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void delete(Performance perform) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -50,7 +50,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void update(Performance perform) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -58,7 +58,7 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void saveOrupdate(Performance perform) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

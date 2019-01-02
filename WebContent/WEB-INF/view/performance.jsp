@@ -6,7 +6,8 @@ $(function() {
 		dom: 'Bfrtip',
         buttons: [
             'csv', 'excel', 'pdf', 'print'
-        ]
+        ],
+        scrollX: true
 	});
 });
 </script>
@@ -23,12 +24,25 @@ $(function() {
 				<li class="active">Dashboard</li>
 			</ol>
 			</section>
-	<section class="content">
+			
+		<div class="container">
+		<section class="content-header">
+			<button style="align:center" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+			    Tambah Data
+			  </button>
+			</section>
+			</div>
+			
+
+
+
+  
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <section class="content">
 		<div class="row">
 			<div class="col-lg-12 container-fluid">
 				<div style="float: left; padding-left: 20px; padding-right: 20px;">
-					<h6 align="center" style="text-decoration: underline">Tambah
-						data</h6>
 					<form action="${pageContext.request.contextPath }/performance/save"
 						method="post">
 						<div class="form-group">
@@ -107,6 +121,10 @@ $(function() {
 			</div>
 		</div>
 	</section>
+  </div>
+</div>
+
+	
 	<!-- Main content -->
 		<section class="content">
           <div class="row">
@@ -121,7 +139,7 @@ $(function() {
 							<table id="data-table" class="table table-bordered table-striped dataTable">
 								<thead align="center">
 									<tr role="row">
-										<th>Id</th>
+										<!-- <th>Id</th> -->
 										<th>Nama</th>
 										<th>Nrp</th>
 										<th>status</th>
@@ -136,12 +154,12 @@ $(function() {
 										<th>sakit</th>
 										<th>alpha</th>
 										<th>nama GL</th>
-										<th></th>
+										<th>Action</th>
 								</thead>
 								<tbody>
 									<c:forEach items="${performs }" var="performs">
 										<tr>
-											<td>${performs.id }</td>
+											<%-- <td>${performs.id }</td> --%>
 											<td>${performs.namaOPT }</td>
 											<td>${performs.nrpOPT }</td>
 											<td>${performs.statusOPT }</td>
@@ -164,7 +182,7 @@ $(function() {
 								</tbody>
 								<tfoot>
 									<tr>
-										<th>Id</th>
+										<!-- <th>Id</th> -->
 										<th>Nama</th>
 										<th>Nrp</th>
 										<th>status</th>
@@ -179,7 +197,7 @@ $(function() {
 										<th>sakit</th>
 										<th>alpha</th>
 										<th>nama GL</th>
-										<th></th>
+										<th>Action</th>
 									</tr>
 								</tfoot>
 							</table>

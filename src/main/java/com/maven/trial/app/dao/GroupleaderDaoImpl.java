@@ -18,7 +18,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 	private SessionFactory sessionFactory;
 	
 	
-	@Override
+	
 	public List<Groupleader> getAll() {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -26,7 +26,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		return session.createCriteria(Groupleader.class).list();
 	}
 
-	@Override
+	
 	public Groupleader getOne(Groupleader gl) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -34,7 +34,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		return session.get(Groupleader.class, gl.getId());
 	}
 
-	@Override
+	
 	public void save(Groupleader gl) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -42,7 +42,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void delete(Groupleader gl) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -50,7 +50,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void update(Groupleader gl) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();
@@ -58,7 +58,7 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		session.flush();
 	}
 
-	@Override
+	
 	public void saveOrupdate(Groupleader gl) {
 		// TODO Auto-generated method stub
 		Session session = sessionFactory.getCurrentSession();

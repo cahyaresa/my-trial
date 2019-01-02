@@ -8,7 +8,8 @@
 			dom: 'Bfrtip',
 	        buttons: [
 	            'csv', 'excel', 'pdf', 'print'
-	        ]
+	        ],
+	        "scrollX": true
 		});
 	});
 </script>
@@ -25,53 +26,68 @@
 				<li class="active">Dashboard</li>
 			</ol>
 			</section>
-<section class="content">
-<div class="row">
-	<div class="col-lg-12 container-fluid">
-		<div style="float: left; padding-left:20px; padding-right: 20px;">
-			<h6 align="center" style="text-decoration : underline">Tambah data</h6>
-			<form action="${pageContext.request.contextPath }/groupleader/save"
-				method="post">
-				<div class="form-group">
-					<label for="id-gl"></label> <input type="hidden"
-						class="form-control" id="id-gl" placeholder="id" />
+			
+			<div class="container">
+			<section class="content-header">
+				<button style="align:center" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+				    Tambah Data
+				  </button>
+				</section>
+			</div>
+
+	<div class="collapse" id="collapseExample">
+		<div class="card card-body">
+			<section class="content">
+				<div class="row">
+					<div class="col-lg-12 container-fluid">
+						<div style="float: left; padding-left: 20px; padding-right: 20px;">
+							<form
+								action="${pageContext.request.contextPath }/groupleader/save"
+								method="post">
+								<div class="form-group">
+									<label for="id-gl"></label> <input type="hidden"
+										class="form-control" id="id-gl" placeholder="id" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="name-gl">Name </label> <input type="text"
+										class="form-control" id="nama-gl" placeholder="Nama" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="nrp">Nrp</label> <input type="text"
+										class="form-control" id="nrp" placeholder="nrp" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="id-departmen"> Departemen </label> <input
+										type="text" class="form-control" id="id-departemen"
+										placeholder="id-departemen" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="posisi">posisi </label> <input type="text"
+										class="form-control" id="posisi" placeholder="id departemen" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="password">password</label> <input type="text"
+										class="form-control" id="password" placeholder="password" />
+								</div>
+								<div class="form-group col-lg-4"
+									style="float: right; padding-top: 20px;">
+
+									<input type="button" class="btn btn-primary form-control"
+										id="btn-save" value="save" />
+								</div>
+							</form>
+						</div>
+					</div>
 				</div>
-				<div class="form-group col-lg-3 col-md-4 col-sm-6">
-					<label for="name-gl">Name </label> <input type="text"
-						class="form-control" id="nama-gl" placeholder="Nama" />
-				</div>
-				<div class="form-group col-lg-3 col-md-4 col-sm-6">
-					<label for="nrp">Nrp</label> <input type="text"
-						class="form-control" id="nrp" placeholder="nrp" />
-				</div>
-				<div class="form-group col-lg-3 col-md-4 col-sm-6">
-					<label for="id-departmen"> Departemen </label> <input type="text"
-						class="form-control" id="id-departemen" placeholder="id-departemen" />
-				</div>
-				<div class="form-group col-lg-3 col-md-4 col-sm-6">
-					<label for="posisi">posisi </label> <input type="text"
-						class="form-control" id="posisi"
-						placeholder="id departemen" />
-				</div>
-				<div class="form-group col-lg-3 col-md-4 col-sm-6">
-					<label for="password">password</label> <input type="text"
-						class="form-control" id="password" placeholder="password" />
-				</div>
-				<div class="form-group col-lg-4" style="float : right; padding-top: 20px;">
-				
-					<input type="button" class="btn btn-primary form-control"
-						id="btn-save" value="save" />
-				</div>
-			</form>
+
+			</section>
+
+
 		</div>
 	</div>
-</div>
-
-</section>
 
 
-
-<!-- Main content -->
+	<!-- Main content -->
 <section class="content">
           <div class="row">
             <div class="col-xs-12">
@@ -86,18 +102,18 @@
 							<table id="data-table" class="table table-bordered table-striped dataTable">
 								<thead align="center">
 									<tr role="row">
-										<th>Id</th>
+										<!-- <th>Id</th> -->
 										<th>Nama</th>
 										<th>Nrp</th>
 										<th>departemen</th>
 										<th>posisi</th>
 										<th>Password</th>
-										<th></th>
+										<th>Action</th>
 								</thead>
 								<tbody>
 									<c:forEach items="${gls }" var="gls">
 										<tr>
-											<td>${gls.id }</td>
+											<%-- <td>${gls.id }</td> --%>
 											<td>${gls.namaGl }</td>
 											<td>${gls.nrpGl }</td>
 											<td>${gls.deptGl }</td>
@@ -111,13 +127,13 @@
 								</tbody>
 								<tfoot>
 									<tr role="row">
-										<th>Id</th>
+										<!-- <th>Id</th> -->
 										<th>Nama</th>
 										<th>Nrp</th>
 										<th>departemen</th>
 										<th>posisi</th>
 										<th>Password</th>
-										<th></th>
+										<th>Action</th>
 								</tfoot>
 							</table>
 						</div>

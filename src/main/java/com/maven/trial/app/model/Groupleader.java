@@ -21,7 +21,7 @@ public class Groupleader {
 	private int id;
 	
 	@Column(name="nrp_gl")
-	private int nrpGl;
+	private String nrpGl;
 	
 	@Column(name="nama_gl")
 	private String namaGl;
@@ -49,11 +49,11 @@ public class Groupleader {
 		this.id = id;
 	}
 
-	public int getNrpGl() {
+	public String getNrpGl() {
 		return nrpGl;
 	}
 
-	public void setNrpGl(int nrpGl) {
+	public void setNrpGl(String nrpGl) {
 		this.nrpGl = nrpGl;
 	}
 
