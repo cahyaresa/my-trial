@@ -165,6 +165,7 @@
 												deptGl : $('#id-departemen').val(),
 												password : $('#password').val(),
 												role : $('#role').val(),
+												active : true,
 											}
 						console.log(groupleaderBaru);
 						$.ajax({
@@ -254,6 +255,7 @@
 													deptGl : $('#update-departemen').val(),
 													password : $('#update-password').val(),
 													role : $('#role').val(),
+													active : true,
 									
 											}
 
