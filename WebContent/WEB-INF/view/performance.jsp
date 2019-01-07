@@ -5,7 +5,7 @@ $(function() {
 		info : false,
 		dom: 'Bfrtip',
         buttons: [
-            'csv', 'excel', 'pdf', 'print'
+            'csv', 'excel',
         ],
         scrollX: true
 	});
@@ -25,6 +25,7 @@ $(function() {
 			</ol>
 			</section>
 			
+<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">  
 		<div class="container">
 		<section class="content-header">
 			<button style="align:center" class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -36,7 +37,7 @@ $(function() {
 
 
 
-  
+
 <div class="collapse" id="collapseExample">
   <div class="card card-body">
     <section class="content">
@@ -123,6 +124,7 @@ $(function() {
 	</section>
   </div>
 </div>
+</security:authorize>
 
 	
 	<!-- Main content -->
@@ -154,7 +156,9 @@ $(function() {
 										<th>sakit</th>
 										<th>alpha</th>
 										<th>nama GL</th>
+										<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 										<th>Action</th>
+										</security:authorize>
 								</thead>
 								<tbody>
 									<c:forEach items="${performs }" var="performs">
@@ -174,9 +178,11 @@ $(function() {
 											<td>${performs.sakit }</td>
 											<td>${performs.alpha }</td>
 											<td>${performs.groupleader.namaGl }</td>
+											<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 											<td><a id="${performs.id }" class="del btn btn-danger">
 													delete</a> | <a id="${performs.id }"
 												class="update btn btn-warning"> update</a></td>
+											</security:authorize>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -197,7 +203,9 @@ $(function() {
 										<th>sakit</th>
 										<th>alpha</th>
 										<th>nama GL</th>
+										<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 										<th>Action</th>
+										</security:authorize>
 									</tr>
 								</tfoot>
 							</table>

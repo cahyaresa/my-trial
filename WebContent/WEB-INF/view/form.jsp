@@ -11,6 +11,60 @@
 				<li class="active">Dashboard</li>
 			</ol>
 			</section>
+		
+		<!-- <style>
+		article, aside, figure, footer, header, hgroup, menu, nav, section {
+			display: block;
+		}
+		</style> -->
+		<security:authorize access="hasRole('ROLE_GROUPLEADER')">
+	<section class="content">
+				<div class="row">
+					<div class="col-lg-12 container-fluid">
+						<div style="float: left; padding-left: 20px; padding-right: 20px;">
+							<form
+								action="${pageContext.request.contextPath }/form/save"
+								method="post">
+								<div class="form-group">
+									<label for="id-cnm"></label> <input type="hidden"
+										class="form-control" id="id-cnm" placeholder="id-cnm" />
+								</div>
+								<div class="form-group">
+									<label for="nama_gl"></label> <input type="hidden"
+										class="form-control" id="nama_gl" value="masih dipikir" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="nama-opt">Nama operator </label> <input type="text"
+										class="form-control" id="nama-opt" placeholder="Nama Operator" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="nrp-opt">Nrp operator</label> <input type="text"
+										class="form-control" id="nrp-opt" placeholder="nrp operator" />
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="materi"> Materi </label><input type="text" 
+									class="form-control" id="materi" placeholder="materi" /> 
+								</div>
+								<div class="form-group col-lg-3 col-md-4 col-sm-6">
+									<label for="posisi">photo </label> 
+									<input type='file' id="photo" onchange="readURL(this);" />
+    								<!-- <img id="blah" src="#" alt="your image" /> -->
+								</div>
+								<div class="form-group col-lg-4"
+									style="float: right; padding-top: 20px;">
+									<input type="button" class="btn btn-primary form-control"
+										id="btn-save" value="save" />
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+
+			</section>
+			
+			</security:authorize>
+			
+			<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 			<!-- Main content -->
 			<section class="content">
           <div class="row">
@@ -64,5 +118,131 @@
           </div>
           </div>
         </section>
+        </security:authorize>
 			<!-- /.content -->
+			
+			
+			<script type="text/javascript">
+		$(document).ready(function(){		
+						//set function save
+						$("#btn-save").on('click', function() {	
+							var groupleaderBaru = {
+												id : $('#id-cnm ').val(),
+												namaGl : $('#nama-gl').val(),
+												nrpGl : $('#nrp').val(),
+												posisiGl : $('#posisi').val(),
+												deptGl : $('#id-departemen').val(),
+												password : $('#password').val(),
+												role : $('#role').val(),
+											}
+						console.log(groupleaderBaru);
+						$.ajax({
+							url : '${pageContext.request.contextPath }/groupleader/save',
+							type : 'POST',
+							data : JSON.stringify(groupleaderBaru),
+							contentType : 'application/json',
+							success : function() {
+								alert("berhasil menambah data groupleader");
+								window.location = "${pageContext.request.contextPath }/groupleader";
+								},
+								error : function() {
+									alert("gagal menambah groupleader");
+									}
+								})
+			});
+
+			//delete
+			$(".del").on('click', function() {
+					var id = $(this).attr('id');
+					$("#id-delete-emp").val(id);
+					alert('deleted');
+					//console.log(id);
+					//$("#deleteEmp-modal").modal();
+			})
+
+			//ajax delete
+			$(".del").on('click',function() {
+					var id = $(this).attr('id');
+					console.log(id);
+				$.ajax({
+					url : "${pageContext.request.contextPath}/groupleader/delete/"+ id,
+						type : 'GET',
+						success : function() {
+							alert('deleted');
+							window.location = "${pageContext.request.contextPath}/groupleader";
+							},
+						error : function() {
+							alert('fail delete');
+							}
+						})
+			})
+
+			//update
+			$(".update").on('click',function(evt) {
+					evt.preventDefault();
+					var id = $(this).attr('id');
+					//cek id
+					alert(id);
+					
+					$.ajax({
+						
+					//ambil satu data terpilih berdasar id
+					url : '${pageContext.request.contextPath}/groupleader/getone/'+ id,
+					type : 'GET',
+					success : function(glupdate) {
+						SetUpdateGroupleader(glupdate);
+						$('#updategl-modal').modal();
+					},
+					error : function(glUpdate) {
+						alert('not updated')
+						},
+					dataType : 'json'
+							});
+			});
+
+						//set-up data for update
+						function SetUpdateGroupleader(groupleader) {
+							console.log(groupleader);
+							$('#update-id').val(groupleader.id),
+							$('#update-nama').val(groupleader.namaGl), 
+							$('#update-nrp').val(groupleader.nrpGl), 
+							$('#update-departemen').val(groupleader.deptGl),
+							$('#update-posisi').val(groupleader.posisiGl), 
+							$('#update-password').val(groupleader.password),
+							$('#update-role').val(groupleader.role)
+									
+						}
+
+						//btn update click
+						$('#btn-update').on('click', function() {
+											var glUpdate = {
+													id : $('#update-id').val(),
+													namaGl :$('#update-nama').val(),
+													nrpGl : $('#update-nrp').val(), 
+													posisiGl : $('#update-posisi').val(), 
+													deptGl : $('#update-departemen').val(),
+													password : $('#update-password').val(),
+													role : $('#role').val(),
+									
+											}
+
+											console.log(glUpdate);
+											$.ajax({
+														url : '${pageContext.request.contextPath}/groupleader/update',
+														type : 'PUT',
+														data : JSON.stringify(glUpdate),
+														contentType : 'application/json',
+														success : function(glUpdate) {
+															alert("update succeess");
+															window.location = '${pageContext.request.contextPath}/groupleader';
+														},
+														error : function() {
+															alert("failed to upadte");
+														}
+
+													})
+										});
+
+					});
+</script>
 <%@ include file="layout/bottom.jsp"%>

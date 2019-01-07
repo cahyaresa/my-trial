@@ -5,6 +5,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="security"  uri="http://www.springframework.org/security/tags" %>
 <c:url value="/j_spring_security_logout" var="logoutUrl" />
 
 <spring:url value="/resources/util/css/bootstrap.min.css" var="bootcss"></spring:url>
@@ -55,6 +56,9 @@
     <link href="${resources }/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css" rel="stylesheet" type="text/css" />
     <link href="${resources }/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />
 	
+<!-- 
+	<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+	 -->
 </head>
 <body class="skin-blue sidebar-mini">
 	<div class="wrapper">
@@ -68,8 +72,6 @@
 		<a href="#" class="sidebar-toggle" data-toggle="offcanvas"
 			role="button"> <span class="sr-only">Toggle navigation</span>
 		</a>
-		<div class="navbar-custom-menu">
-		</div>
 		</nav> </header>
 		<!-- Left side column. contains the logo and sidebar -->
 		<aside class="main-sidebar"> <!-- sidebar: style can be found in sidebar.less -->
@@ -106,12 +108,29 @@
 				<ul class="treeview-menu">
 					<li><a href="/app/performance"><i
 							class="fa fa-circle-o"></i> Data Performa Operator </a></li>
+					<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">  
 					<li><a href="/app/groupleader"><i
 							class="fa fa-circle-o"></i> Data Group Leader</a></li>
+					</security:authorize>
 					<li><a href="/app/form"><i
 							class="fa fa-circle-o"></i> Form Cnm</a></li>
-				</ul></li>
-</ul>
+				</ul>
+			</li>
+			<li class="header">LOGOUT</li>
+			<li class="treeview">
+				<!-- csrt for log out-->
+				<form action="${logoutUrl}" method="post" id="logoutForm">
+					<input type="hidden" name="${_csrf.parameterName}"
+						value="${_csrf.token}" /> 
+					<input type="submit" value="logout"
+						class="form-control" name="logout" />
+				</form>
+			</li>
+		</ul>
+		
+		<ul>
+			
+		</ul>
 		</section> <!-- /.sidebar --> </aside>
 
 		

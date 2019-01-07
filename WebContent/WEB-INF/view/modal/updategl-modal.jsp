@@ -15,6 +15,10 @@
 					<label for="update-id"></label> <input type="hidden"
 						class="form-control" id="update-id" placeholder="id" />
 				</div>
+				<div class="form-group">
+					<label for="update-role"></label> <input type="hidden"
+						class="form-control" id="update-role" placeholder="role" />
+				</div>
 				<div class="form-group  ">
 					<label for="update-name">Name </label> <input type="text"
 						class="form-control" id="update-nama" placeholder="Nama" />

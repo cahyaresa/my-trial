@@ -19,6 +19,7 @@
 			<value>classpath:application.properties</value>
 		</property>
 	</bean>
+	<import resource="springSecurity.xml" />
 
 	<!-- add Data Source -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">

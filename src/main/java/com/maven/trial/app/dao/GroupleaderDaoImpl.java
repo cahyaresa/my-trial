@@ -66,4 +66,19 @@ public class GroupleaderDaoImpl implements GroupleaderDao  {
 		session.flush();
 	}
 
+
+	
+	public List<Groupleader> getOneByName(String name) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "from groupleader gl where gl.name = :name";
+		List<Groupleader> gl = session.createQuery(hql).setParameter("name", name).list();
+		gl.get(0);
+		
+		if(gl.isEmpty())
+			return null;
+		else
+		return gl;
+	}
+
 }

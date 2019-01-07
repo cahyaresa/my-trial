@@ -35,11 +35,19 @@ public class Groupleader {
 	@Column(name="password")
 	private String password;
 	
+	@Column(name="role")
+	private String role;
+	
+	@Column(name="enabled", nullable=false)
+	private boolean active;
+	
+	
+	
 	@OneToMany(mappedBy="groupleader")
 	Set<Performance> performances;
 	
-	@OneToMany(mappedBy="groupleader")
-	Set<FormCnm> formCnms;
+	/*@OneToMany(mappedBy="groupleader")
+	Set<FormCnm> formCnms;*/
 
 	public int getId() {
 		return id;
@@ -97,12 +105,28 @@ public class Groupleader {
 		this.performances = performances;
 	}
 
-	public Set<FormCnm> getFormCnms() {
+	/*public Set<FormCnm> getFormCnms() {
 		return formCnms;
 	}
 
 	public void setFormCnms(Set<FormCnm> formCnms) {
 		this.formCnms = formCnms;
+	}*/
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
+	}
+
+	public boolean isActive() {
+		return active;
+	}
+
+	public void setActive(boolean active) {
+		this.active = active;
 	}
 
 	

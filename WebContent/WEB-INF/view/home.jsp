@@ -15,7 +15,7 @@
 			<!-- Main content -->
 			<section class="content"> <!-- Small boxes (Stat box) -->
 			<div class="row">
-				<div class="col-lg-4 col-xs-6" style="height: 100%;">
+				<div class="col-lg-4 col-xs-12" style="height: 100%;">
 					<!-- small box -->
 					<div class="small-box bg-aqua" style="height: 150px;">
 						<div class="inner">
@@ -30,7 +30,7 @@
 					</div>
 				</div>
 				<!-- ./col -->
-				<div class="col-lg-4 col-xs-6" style="height: 100%;">
+				<div class="col-lg-4 col-xs-12" style="height: 100%;">
 					<!-- small box -->
 					<div class="small-box bg-green" style="height: 150px;">
 						<div class="inner">
@@ -46,8 +46,10 @@
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
-				<!-- ./col -->
-				<div class="col-lg-4 col-xs-6" style="height: 100%;">
+				
+				<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
+				    <!-- ./col -->
+				<div class="col-lg-4 col-xs-12" style="height: 100%;">
 					<!-- small box -->
 					<div class="small-box bg-yellow" style="height: 150px;">
 						<div class="inner">
@@ -61,6 +63,12 @@
 							class="fa fa-arrow-circle-right"></i></a>
 					</div>
 				</div>
+				
+				</security:authorize>
+				
+			
+				
+				
 				<!-- ./col -->
 			</div>
 			<!-- /.row --> <!-- Main row -->

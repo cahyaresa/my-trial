@@ -22,4 +22,7 @@ public interface GroupleaderDao {
 		public void update(Groupleader gl);
 
 		public void saveOrupdate(Groupleader gl);
+		
+		//get one by name
+		public List<Groupleader> getOneByName(String name);
 }

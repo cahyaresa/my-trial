@@ -33,13 +33,10 @@ public class FormCnm {
 	
 	@Column(name="foto")
 	private String foto;
-
 	
-	@ManyToOne()
-	@JoinColumn(name="id_groupleader")
-	Groupleader groupleader;
-
-
+	@Column(name="nama_gl")
+	private String namaGl;
+	
 	public int getId() {
 		return id;
 	}
@@ -90,14 +87,15 @@ public class FormCnm {
 	}
 
 
-	public Groupleader getGroupleader() {
-		return groupleader;
+	public String getNamaGl() {
+		return namaGl;
 	}
 
 
-	public void setGroupleader(Groupleader groupleader) {
-		this.groupleader = groupleader;
+	public void setNamaGl(String namaGl) {
+		this.namaGl = namaGl;
 	}
+
 	
 	
 }

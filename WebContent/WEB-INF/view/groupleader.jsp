@@ -48,6 +48,10 @@
 									<label for="id-gl"></label> <input type="hidden"
 										class="form-control" id="id-gl" placeholder="id" />
 								</div>
+								<div class="form-group">
+									<label for="role"></label> <input type="hidden"
+										class="form-control" id="role" value="ROLE_GROUPLEADER" />
+								</div>
 								<div class="form-group col-lg-3 col-md-4 col-sm-6">
 									<label for="name-gl">Name </label> <input type="text"
 										class="form-control" id="nama-gl" placeholder="Nama" />
@@ -59,11 +63,11 @@
 								<div class="form-group col-lg-3 col-md-4 col-sm-6">
 									<label for="id-departmen"> Departemen </label> <input
 										type="text" class="form-control" id="id-departemen"
-										placeholder="id-departemen" />
+										placeholder="departemen" />
 								</div>
 								<div class="form-group col-lg-3 col-md-4 col-sm-6">
 									<label for="posisi">posisi </label> <input type="text"
-										class="form-control" id="posisi" placeholder="id departemen" />
+										class="form-control" id="posisi" placeholder="posisi" />
 								</div>
 								<div class="form-group col-lg-3 col-md-4 col-sm-6">
 									<label for="password">password</label> <input type="text"
@@ -160,6 +164,7 @@
 												posisiGl : $('#posisi').val(),
 												deptGl : $('#id-departemen').val(),
 												password : $('#password').val(),
+												role : $('#role').val(),
 											}
 						console.log(groupleaderBaru);
 						$.ajax({
@@ -234,7 +239,8 @@
 							$('#update-nrp').val(groupleader.nrpGl), 
 							$('#update-departemen').val(groupleader.deptGl),
 							$('#update-posisi').val(groupleader.posisiGl), 
-							$('#update-password').val(groupleader.password)
+							$('#update-password').val(groupleader.password),
+							$('#update-role').val(groupleader.role)
 									
 						}
 
@@ -246,7 +252,8 @@
 													nrpGl : $('#update-nrp').val(), 
 													posisiGl : $('#update-posisi').val(), 
 													deptGl : $('#update-departemen').val(),
-													password : $('#update-password').val()
+													password : $('#update-password').val(),
+													role : $('#role').val(),
 									
 											}
 

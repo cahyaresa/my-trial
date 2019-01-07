@@ -50,4 +50,12 @@ public class GroupleaderService {
 			// TODO Auto-generated method stub
 			groupleaderDao.saveOrupdate(gl);
 		}
+		
+		public List<Groupleader> getOneByName(String name) {
+			// TODO Auto-generated method stub
+			Groupleader groupleader = new Groupleader();
+			groupleader.setNamaGl(name);
+			return groupleaderDao.getOneByName(name);
+			
+		}
 }
