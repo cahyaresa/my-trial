@@ -23,10 +23,13 @@ public class FormCnm {
 	private int id;
 
 	@Column(name="nrp_opt")
-	private int nrpOpt;
+	private String nrpOpt;
+	
+	@Column(name="nama_opt")
+	private String namaOpt;
 	
 	@Column(name="materi")
-	private int materi;
+	private String materi;
 	
 	@Column(name="tanggal")
 	private Date tanggal;
@@ -47,22 +50,22 @@ public class FormCnm {
 	}
 
 
-	public int getNrpOpt() {
+	public String getNrpOpt() {
 		return nrpOpt;
 	}
 
 
-	public void setNrpOpt(int nrpOpt) {
+	public void setNrpOpt(String nrpOpt) {
 		this.nrpOpt = nrpOpt;
 	}
 
 
-	public int getMateri() {
+	public String getMateri() {
 		return materi;
 	}
 
 
-	public void setMateri(int materi) {
+	public void setMateri(String materi) {
 		this.materi = materi;
 	}
 
@@ -94,6 +97,16 @@ public class FormCnm {
 
 	public void setNamaGl(String namaGl) {
 		this.namaGl = namaGl;
+	}
+
+
+	public String getNamaOpt() {
+		return namaOpt;
+	}
+
+
+	public void setNamaOpt(String namaOpt) {
+		this.namaOpt = namaOpt;
 	}
 
 	

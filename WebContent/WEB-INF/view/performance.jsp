@@ -155,6 +155,7 @@ $(function() {
 										<th>izin</th>
 										<th>sakit</th>
 										<th>alpha</th>
+										<th>nrp GL</th>
 										<th>nama GL</th>
 										<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 										<th>Action</th>
@@ -177,6 +178,7 @@ $(function() {
 											<td>${performs.izin }</td>
 											<td>${performs.sakit }</td>
 											<td>${performs.alpha }</td>
+											<td>${performs.groupleader.nrpGl }</td>
 											<td>${performs.groupleader.namaGl }</td>
 											<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 											<td><a id="${performs.id }" class="del btn btn-danger">
@@ -202,6 +204,7 @@ $(function() {
 										<th>izin</th>
 										<th>sakit</th>
 										<th>alpha</th>
+										<th>nrp G:</th>
 										<th>nama GL</th>
 										<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
 										<th>Action</th>

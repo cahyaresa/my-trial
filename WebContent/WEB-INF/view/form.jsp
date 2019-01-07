@@ -81,6 +81,7 @@
                       <tr role="row">
 					<th>Id</th>
 					<th>nrpOpt </th>
+					<th>nama Opt</th>
 					<th>materi</th>
 					<th>tanggal</th>
 					<th>foto</th>
@@ -91,6 +92,7 @@
 						<tr>
 							<td>${forms.id }</td>
 							<td>${forms.nrpOpt }</td>
+							<td>${forms.namaOpt }</td>
 							<td>${forms.materi }</td>
 							<td>${forms.tanggal }</td>
 							<td>${forms.foto }</td>
@@ -104,6 +106,7 @@
                     <tr role="row">
 					<th>Id</th>
 					<th>nrpOpt </th>
+					<th>nama opt</th>
 					<th>materi</th>
 					<th>tanggal</th>
 					<th>foto</th>
@@ -126,24 +129,23 @@
 		$(document).ready(function(){		
 						//set function save
 						$("#btn-save").on('click', function() {	
-							var groupleaderBaru = {
+							var formBaru = {
 												id : $('#id-cnm ').val(),
-												namaGl : $('#nama-gl').val(),
-												nrpGl : $('#nrp').val(),
-												posisiGl : $('#posisi').val(),
-												deptGl : $('#id-departemen').val(),
-												password : $('#password').val(),
-												role : $('#role').val(),
+												nrpOpt : $('#nrp-opt').val(),
+												namaOpt : $('#nama-opt').val(),
+												materi : $('#materi').val(),
+												tanggal : new Date,
+												foto : $('#photo').val()
 											}
-						console.log(groupleaderBaru);
+						console.log(formBaru);
 						$.ajax({
-							url : '${pageContext.request.contextPath }/groupleader/save',
+							url : '${pageContext.request.contextPath }/form/save',
 							type : 'POST',
-							data : JSON.stringify(groupleaderBaru),
+							data : JSON.stringify(formBaru),
 							contentType : 'application/json',
 							success : function() {
 								alert("berhasil menambah data groupleader");
-								window.location = "${pageContext.request.contextPath }/groupleader";
+								window.location = "${pageContext.request.contextPath }/form";
 								},
 								error : function() {
 									alert("gagal menambah groupleader");
@@ -169,7 +171,7 @@
 						type : 'GET',
 						success : function() {
 							alert('deleted');
-							window.location = "${pageContext.request.contextPath}/groupleader";
+							window.location = "${pageContext.request.contextPath}/form";
 							},
 						error : function() {
 							alert('fail delete');
