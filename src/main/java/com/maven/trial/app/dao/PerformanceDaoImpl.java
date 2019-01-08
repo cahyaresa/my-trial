@@ -66,4 +66,19 @@ public class PerformanceDaoImpl implements PerformanceDao  {
 		session.flush();
 	}
 
+
+	@Override
+	public List<Performance> getPerformByNrpGl(String nrpGl) {
+		// TODO Auto-generated method stub
+		Session session = sessionFactory.getCurrentSession();
+		String hql = "from Performance perform where perform.groupleader.id = :id";
+		List <Performance> perform = session.createQuery(hql).setParameter("id", nrpGl).list();
+		
+		if(perform.isEmpty()) {
+			return null;
+		} else {
+			return perform;
+		}
+	}
+
 }

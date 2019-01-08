@@ -50,4 +50,15 @@ public class PerformanceService {
 			// TODO Auto-generated method stub
 			performanceDao.saveOrupdate(perform);
 		}
+		
+		public List<Performance> getPerformByNrpGl(String nrpGl){
+			
+			List<Performance> performbygl = performanceDao.getPerformByNrpGl(nrpGl);
+			if(performbygl.isEmpty()) {
+				return null;
+			} else {
+				return performbygl;
+			}
+			
+		}
 }

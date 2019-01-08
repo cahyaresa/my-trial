@@ -125,8 +125,6 @@ $(function() {
   </div>
 </div>
 </security:authorize>
-
-	
 	<!-- Main content -->
 		<section class="content">
           <div class="row">
@@ -162,27 +160,27 @@ $(function() {
 										</security:authorize>
 								</thead>
 								<tbody>
-									<c:forEach items="${performs }" var="performs">
+									<c:forEach items="${performas }" var="performas">
 										<tr>
 											<%-- <td>${performs.id }</td> --%>
-											<td>${performs.namaOPT }</td>
-											<td>${performs.nrpOPT }</td>
-											<td>${performs.statusOPT }</td>
-											<td>${performs.deptOPT }</td>
-											<td>${performs.mdr }</td>
-											<td>${performs.prodty }</td>
-											<td>${performs.safety }</td>
-											<td>${performs.discipline }</td>
-											<td>${performs.fpi }</td>
-											<td>${performs.atrOpt }</td>
-											<td>${performs.izin }</td>
-											<td>${performs.sakit }</td>
-											<td>${performs.alpha }</td>
-											<td>${performs.groupleader.nrpGl }</td>
-											<td>${performs.groupleader.namaGl }</td>
+											<td>${performas.namaOPT }</td>
+											<td>${performas.nrpOPT }</td>
+											<td>${performas.statusOPT }</td>
+											<td>${performas.deptOPT }</td>
+											<td>${performas.mdr }</td>
+											<td>${performas.prodty }</td>
+											<td>${performas.safety }</td>
+											<td>${performas.discipline }</td>
+											<td>${performas.fpi }</td>
+											<td>${performas.atrOpt }</td>
+											<td>${performas.izin }</td>
+											<td>${performas.sakit }</td>
+											<td>${performas.alpha }</td>
+											<td>${performas.groupleader.nrpGl }</td>
+											<td>${performas.groupleader.namaGl }</td>
 											<security:authorize access="hasRole('ROLE_ADMINISTRATOR')">
-											<td><a id="${performs.id }" class="del btn btn-danger">
-													delete</a> | <a id="${performs.id }"
+											<td><a id="${performas.id }" class="del btn btn-danger">
+													delete</a> | <a id="${performas.id }"
 												class="update btn btn-warning"> update</a></td>
 											</security:authorize>
 										</tr>
@@ -227,7 +225,7 @@ $(function() {
 						//set function save
 						$("#btn-save").on('click', function() {	
 							var performaBaru = {
-									id : $('#id-perform').val(),
+									id : $('#nrp-opt').val(),
 									namaOPT : $('#nama-opt').val(),
 									nrpOPT : $('#nrp-opt').val(),
 									statusOPT : $('#status').val(),
@@ -263,14 +261,14 @@ $(function() {
 			});
 
 			//delete
-			$(".del").on('click', function() {
+			$("#data-table tbody").on('click', '.del',function(evt) {
 					var id = $(this).attr('id');
 					/* $("#id-delete-emp").val(id);
 					alert('deleted'); */
 			})
 
 			//ajax delete
-			$(".del").on('click',function() {
+			$("#data-table tbody").on('click', '.del',function(evt) {
 					var id = $(this).attr('id');
 					console.log(id);
 				$.ajax({
@@ -287,7 +285,7 @@ $(function() {
 			})
 
 			//update
-			$(".update").on('click',function(evt) {
+			$("#data-table tbody").on('click', '.update',function(evt) {
 					evt.preventDefault();
 					var id = $(this).attr('id');
 					//cek id
@@ -312,7 +310,7 @@ $(function() {
 						//set-up data for update
 						function SetUpdatePerformance(perform) {
 							console.log(perform);
-							$('#update-id-perform').val(perform.id),
+							$('#update-id-perform').val(perform.nrpOPT),
 							$('#update-nama-opt').val(perform.namaOPT),
 							$('#update-nrp-opt').val(perform.nrpOPT),
 							$('#update-status').val(perform.statusOPT),
@@ -333,7 +331,7 @@ $(function() {
 						//btn update click
 						$('#btn-update').on('click', function() {
 											var performanceUpdate = {
-													id 			: $('#update-id-perform').val(),
+													id 			: $('#update-nrp-opt').val(),
 													namaOPT 	: $('#update-nama-opt').val(),
 													nrpOPT 		: $('#update-nrp-opt').val(),
 													statusOPT 	: $('#update-status').val(),

@@ -11,13 +11,16 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="group_leader")
 public class Groupleader {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="idGl")
-	@SequenceGenerator(initialValue=1, name="idGl", sequenceName="idGl")
+	/*@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")*/
+	@Column(name = "id_groupleader")
 	private String id;
 	
 	@Column(name="nrp_gl")

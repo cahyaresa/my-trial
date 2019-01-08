@@ -10,13 +10,16 @@ import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import org.hibernate.annotations.GenericGenerator;
+
 @Entity
 @Table(name="performance")
 public class Performance {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="idPerform")
-	@SequenceGenerator(initialValue=1111, name="idPerform", sequenceName="idPerform")
+	/*@GeneratedValue(generator = "uuid")
+	@GenericGenerator(name = "uuid", strategy = "uuid2")*/
+	@Column(name = "id_perform")
 	private String id;
 	
 	@Column(name="nrp_opt")
@@ -44,7 +47,7 @@ public class Performance {
 	private int discipline;
 	
 	@Column(name="fpi")
-	private int fpi;
+	private Double fpi;
 	
 	@Column(name="atr_opt")
 	private int atrOpt;
@@ -134,11 +137,11 @@ public class Performance {
 		this.discipline = discipline;
 	}
 
-	public int getFpi() {
+	public Double getFpi() {
 		return fpi;
 	}
 
-	public void setFpi(int fpi) {
+	public void setFpi(Double fpi) {
 		this.fpi = fpi;
 	}
 

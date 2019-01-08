@@ -11,12 +11,12 @@
 	        ],
 	        "scrollX": true,
 	        
-	        "ajax": "data/arrays.txt",
+	        /* "ajax": "data/arrays.txt",
 	        "columnDefs": [ {
 	            "targets": -1,
 	            "data": null,
 	            "defaultContent": "<button>Click!</button>"
-	        } ]
+	        } ] */
 		});
 	});
 </script>
@@ -165,7 +165,7 @@
 						//set function save
 						$("#btn-save").on('click', function() {	
 							var groupleaderBaru = {
-												id : $('#id-gl').val(),
+												id : $('#nrp').val(),
 												namaGl : $('#nama-gl').val(),
 												nrpGl : $('#nrp').val(),
 												posisiGl : $('#posisi').val(),
@@ -191,7 +191,7 @@
 			});
 
 			//delete
-			$(".del").on('click', function() {
+			$("#data-table tbody").on('click', '.del' ,function() {
 					var id = $(this).attr('id');
 					$("#id-delete-emp").val(id);
 					alert('deleted');
@@ -200,7 +200,7 @@
 			})
 
 			//ajax delete
-			$(".del").on('click',function() {
+			$("#data-table tbody").on('click', '.del', function() {
 					var id = $(this).attr('id');
 					console.log(id);
 				$.ajax({
@@ -217,7 +217,7 @@
 			})
 
 			//update
-			$(".update").on('click',function(evt) {
+			$("#data-table tbody").on('click', '.update',function(evt) {
 					evt.preventDefault();
 					var id = $(this).attr('id');
 					//cek id
@@ -255,7 +255,7 @@
 						//btn update click
 						$('#btn-update').on('click', function() {
 											var glUpdate = {
-													id : $('#update-id').val(),
+													id : $('#update-nrp').val(),
 													namaGl :$('#update-nama').val(),
 													nrpGl : $('#update-nrp').val(), 
 													posisiGl : $('#update-posisi').val(), 

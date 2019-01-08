@@ -22,4 +22,6 @@ public interface PerformanceDao {
 		public void update(Performance perform);
 
 		public void saveOrupdate(Performance perform);
+		
+		public List<Performance> getPerformByNrpGl(String nrpGl);
 }
