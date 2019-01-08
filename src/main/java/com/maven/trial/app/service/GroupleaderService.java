@@ -24,7 +24,7 @@ public class GroupleaderService {
 		}
 		
 		//getOne
-		public Groupleader getOne(int id) {
+		public Groupleader getOne(String id) {
 			Groupleader gl = new Groupleader();
 			gl.setId(id);
 			return groupleaderDao.getOne(gl);

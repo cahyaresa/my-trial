@@ -18,7 +18,7 @@ public class Groupleader {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="idGl")
 	@SequenceGenerator(initialValue=1, name="idGl", sequenceName="idGl")
-	private int id;
+	private String id;
 	
 	@Column(name="nrp_gl")
 	private String nrpGl;
@@ -49,11 +49,11 @@ public class Groupleader {
 	/*@OneToMany(mappedBy="groupleader")
 	Set<FormCnm> formCnms;*/
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 

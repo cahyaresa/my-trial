@@ -17,10 +17,10 @@ public class Performance {
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="idPerform")
 	@SequenceGenerator(initialValue=1111, name="idPerform", sequenceName="idPerform")
-	private int id;
+	private String id;
 	
 	@Column(name="nrp_opt")
-	private int nrpOPT;
+	private String nrpOPT;
 	
 	@Column(name="nama_opt")
 	private String namaOPT;
@@ -62,19 +62,19 @@ public class Performance {
 	@JoinColumn(name="id_groupleader")
 	Groupleader groupleader;
 
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 
-	public int getNrpOPT() {
+	public String getNrpOPT() {
 		return nrpOPT;
 	}
 
-	public void setNrpOPT(int nrpOPT) {
+	public void setNrpOPT(String nrpOPT) {
 		this.nrpOPT = nrpOPT;
 	}
 

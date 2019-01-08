@@ -36,8 +36,8 @@
 		 <property name="dataSource" ref="dataSource"></property>
 		 <property name="annotatedClasses">
 				<list>
-					<value>com.maven.trial.app.model.Employee</value>
-					<value>com.maven.trial.app.model.Department</value>
+					<!-- <value>com.maven.trial.app.model.Employee</value>
+					<value>com.maven.trial.app.model.Department</value> -->
 					<value>com.maven.trial.app.model.FormCnm</value>
 					<value>com.maven.trial.app.model.Groupleader</value>
 					<value>com.maven.trial.app.model.Performance</value>
@@ -46,7 +46,7 @@
 			</property>
 			<property name="hibernateProperties">
 				<props>
-					<prop key="hibernate.hbm2ddl.auto">update</prop>
+					<prop key="hibernate.hbm2ddl.auto">create</prop>
 					<prop key="hibernate.dialect">org.hibernate.dialect.MySQL5Dialect</prop>
 					<prop key="hibernate.show_sql">true</prop>
 					<prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate5.SpringSessionContext

@@ -47,7 +47,7 @@ public class GroupleaderController {
 		//delete
 		@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 		@ResponseStatus(HttpStatus.OK)
-		public void delete(@PathVariable int id) {
+		public void delete(@PathVariable String id) {
 			Groupleader gl = new Groupleader();
 			gl.setId(id);
 			groupleaderService.delete(gl);
@@ -55,7 +55,7 @@ public class GroupleaderController {
 		
 		@RequestMapping(value="/getone/{id}", method=RequestMethod.GET)
 		@ResponseBody
-		public Groupleader getOne(@PathVariable int id) {
+		public Groupleader getOne(@PathVariable String id) {
 			Groupleader gl = new Groupleader();
 			gl.setId(id);
 			return groupleaderService.getOne(id);

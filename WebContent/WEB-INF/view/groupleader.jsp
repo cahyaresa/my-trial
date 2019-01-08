@@ -9,11 +9,18 @@
 	        buttons: [
 	            'csv', 'excel', 'pdf', 'print'
 	        ],
-	        "scrollX": true
+	        "scrollX": true,
+	        
+	        "ajax": "data/arrays.txt",
+	        "columnDefs": [ {
+	            "targets": -1,
+	            "data": null,
+	            "defaultContent": "<button>Click!</button>"
+	        } ]
 		});
 	});
 </script>
-
+ 
 <!-- Content Wrapper. Contains page content -->
 		<div class="content-wrapper">
 			<!-- Content Header (Page header) -->

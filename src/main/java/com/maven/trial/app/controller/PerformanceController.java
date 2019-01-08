@@ -55,7 +55,7 @@ public class PerformanceController {
 		//delete
 		@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 		@ResponseStatus(HttpStatus.OK)
-		public void delete(@PathVariable int id) {
+		public void delete(@PathVariable String id) {
 			Performance perform = new Performance();
 			perform.setId(id);
 			performanceService.delete(perform);
@@ -63,7 +63,7 @@ public class PerformanceController {
 		
 		@RequestMapping(value="/getone/{id}", method=RequestMethod.GET)
 		@ResponseBody
-		public Performance getOne(@PathVariable int id) {
+		public Performance getOne(@PathVariable String id) {
 			Performance perform = new Performance();
 			perform.setId(id);
 			return performanceService.getOne(id);

@@ -24,7 +24,7 @@ public class PerformanceService {
 		}
 		
 		//getOne
-		public Performance getOne(int id) {
+		public Performance getOne(String id) {
 			Performance perform = new Performance();
 			perform.setId(id);
 			return performanceDao.getOne(perform);
